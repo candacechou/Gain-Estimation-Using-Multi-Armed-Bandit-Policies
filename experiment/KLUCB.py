@@ -142,8 +142,8 @@ class KLUCB_Single_Freq():
         plt.figure()
         plt.plot(self.bandit.arms,self.bandit.norm, label = '|G(e^{j$\omega_k$})|')
         
-        y1  = [float(self.emp_rewards[inn] - self.Bound[inn]) for inn in range(self.bandit.K)]
-        y2  = [float(self.emp_rewards[inn] + self.Bound[inn]) for inn in range(self.bandit.K)]
+        y1  = [float(2*self.emp_rewards[inn]-self.Bound[inn]) for inn in range(self.bandit.K)]
+        y2  = [float(self.Bound[inn]) for inn in range(self.bandit.K)]
         
         plt.fill_between(self.bandit.arms, y1, y2,color='gray', alpha=0.2)
         plt.scatter(self.bandit.arms,self.emp_rewards,color = 'orange',label = r'|$\^G$(e^{j$\omega$})|')
@@ -348,7 +348,7 @@ class KLUCB_Power_Allocation():
         plt.figure()
         plt.plot(self.bandit.arms,self.bandit.norm, label = '|G(e^{j$\omega_k$})|')
         dy  = self.Bound
-        y1  = [float(self.emp_rewards[inn] - self.Bound[inn]) for inn in range(self.bandit.K)]
+        y1  = [float(2*self.emp_rewards[inn]-self.Bound[inn]) for inn in range(self.bandit.K)]
         y2  = [float(self.emp_rewards[inn] + self.Bound[inn]) for inn in range(self.bandit.K)]
         plt.fill_between(self.bandit.arms, y1, y2,color='gray', alpha=0.2)
         

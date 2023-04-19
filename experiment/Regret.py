@@ -36,7 +36,7 @@ class Model_Regret():
         print("=============================")
         for i in range(self.Num):
             if i < self.Num-1 or not savefig:
-                self.model.training(showed,savefig = savefig)
+                self.model.training(showed,savefig = False)
             else:
                 self.model.training(showed,savefig = True,frame=frame)
             print(f"The {i+1}th model with the overall Regret: {self.model.regret[-1]}")
